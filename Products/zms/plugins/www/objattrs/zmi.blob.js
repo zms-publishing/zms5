@@ -116,6 +116,25 @@ function zmiDelBlobBtnClick(elName) {
 	zmiSwitchBlobButtons(elName);
 }
 
+/**
+ * Remove  special characters from file name.
+ */
+function remove_special_chars(s) {
+	var l = s.length;
+	var safe_s = '';
+	// debugger;
+	for ( i = 0; i < l; i++) {
+		var ch = s[i];
+		if ( ch== decodeURIComponent(ch) ) {
+			safe_s += ch;
+		} else {
+			safe_s += '_';
+		};
+	};
+	// console.log('remove_special_chars ' + s + ' ==> ' + safe_s)
+	return safe_s;
+}
+
 $(function() {
 	$(".zmi-image,.zmi-file").each(function() {
 			$(this).addClass("d-flex align-items-center");

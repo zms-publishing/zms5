@@ -51,7 +51,7 @@ function onExportFormatChange(el) {
 			<div class="col-md-5">
 				<div class="custom-file new">
 					<input class="custom-file-input" type="file" name="file" id="file" size="25" value=""
-						onchange="$(this).next().html($(this).val().replace(/^.*(\\|\/|\:)/, ''));" />
+						onchange="$(this).next().html(remove_special_chars($(this).val().replace(/^.*(\\|\/|\:)/, '')));" />
 					<label class="custom-file-label" for="file"
 						tal:content="python:here.getZMILangStr('ACTION_SELECT')%here.getZMILangStr('ATTR_FILE')">Choose file
 					</label>
